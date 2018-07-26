@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Удаление новости";
+}
+
+<h1>Удаление новости</h1>
+
+<form method="post">
+    <p>Заголовок</p>
+    <select name="NewId">
+        @foreach (var n in ViewBag.News)
+        {
+            <option value="@n.NewId">@n.Head</option>
+        }
+    </select>
+    <input type="submit" value="Удалить" />
+</form>
+
+

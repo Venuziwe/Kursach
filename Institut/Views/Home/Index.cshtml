@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Физико-технический институт Петрозаводского государственного университета";
+    //var culture = new System.Globalization.CultureInfo("ru-Ru");
+}
+<main>
+    <div class="kartinka">
+        <div class="container">
+            <div class="col-md-12">
+                <div id="carousel-id" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+                        <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src="~/Content/images/bomj.jpg">
+                            <div class="container">
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Content/images/pepe.jpg">
+                            <div class="container">
+
+                            </div>
+                        </div>
+                        <div class="item active">
+                            <img src="~/Content/images/black.jpg">
+                            <div class="container">
+
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="news">
+    <div class="top-news">
+        <div class="container">
+            <div class="col-md-2">
+                <b href="#" class="logo" title="logo">Новости</b>
+            </div>
+            <div class="col-md-7"></div>
+            <div class="col-md-3 text-right">
+                <ul>
+                    <li><a href="/Home/AddNew">Добавить</a></li>
+                    <li><a href="/Home/DeleteNew">Удалить</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-news">
+        <div class="container">
+            <div id="slider">
+                <div id="slider_box">
+                    <ul>
+                        @foreach (var n in ViewBag.News)
+                        {
+                            var imagePath = @n.NewId + ".jpeg";
+                            <li>
+                                <div class="NewBlock">
+                                    <img src="~/Content/Images/@imagePath" />
+                                    <p>@n.Date.ToString("dd:MM:yyyy")</p>
+                                    <a href="/Home/ShowNew?New_Id=@n.NewId">@n.Head</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <!--        slider_box-->
+                <div id="nav_slider">
+                    <div id="left_nav"><span class="strelka glyphicon glyphicon-chevron-left"></span></div>
+                    <div id="right_nav"><span class="strelka glyphicon glyphicon-chevron-right"></span></div>
+                </div>
+            </div>
+            <!--    slider-->
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script>
+                function Slider(width_li, margin_right_li, col_view_img) {
+                    var step = width_li + margin_right_li,
+                        slider_box_with = col_view_img * step - margin_right_li,
+                        $col_img = $("#slider_box>ul>li").length,
+                        col_main_left = 0,
+                        max_col_main_left = $col_img * step;
+                    $("#slider_box").width(slider_box_with);
+                    $("#slider_box>ul>li").width(width_li).css("margin-right", margin_right_li);
+                    $("#left_nav").click(function () {
+                        if (-col_main_left == max_col_main_left - col_view_img * step) {
+                            col_main_left = 0;
+                        } else {
+                            col_main_left = col_main_left - step;
+                        }
+                        $("#slider_box>ul").css("margin-left", col_main_left + "px");
+                    });
+                    $("#right_nav").click(function () {
+                        if (col_main_left == 0) {
+                            col_main_left = -max_col_main_left + col_view_img * step;
+                        } else {
+                            col_main_left = col_main_left + step;
+                        }
+                        $("#slider_box>ul").css("margin-left", col_main_left + "px");
+                    });
+                }
+                $(Slider(253, 33, 4));
+            </script>
+        </div>
+    </div>
+    </div>
+    <div class="event">
+        <div class="top-event">
+            <div class="container">
+                <div class="col-md-3">
+                    <b href="#" class="logo" title="logo">Мероприятия</b>
+                </div>
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-2 text-right">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-event">
+            <div class="container">
+                <div class="col-md-12 t-data">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Poleznaya_informazia">
+            <div class="top-info">
+                <div class="container">
+                    <div class="col-md-4">
+                        <b href="#" class="logo" title="logo">Полезная информация</b>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-info">
+                <div class="container">
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href="#">Сведения об образовательной организации</a></li>
+                            <li><a href="#">Страница ректора</a></li>
+                            <li><a href="#">Институты и факультеты</a></li>
+                            <li><a href="#">Библиотека</a></li> 
+                            <li><a href="#">Сведения об образовательной организации в реальном мире</a></li>
+                            <li><a href="#">Расписание</a></li>
+                            <li><a href="#">Федеральный портал Российское Образование</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href="#">Сведения об образовательной организации</a></li>
+                            <li><a href="#">Страница ректора</a></li>
+                            <li><a href="#">Институты и факультеты</a></li>
+                            <li><a href="#">Библиотека</a></li> 
+                            <li><a href="#">Сведения об образовательной организации в реальном мире</a></li>
+                            <li><a href="#">Расписание</a></li>
+                            <li><a href="#">Федеральный портал Российское Образование</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href="#">Сведения об образовательной организации</a></li>
+                            <li><a href="#">Страница ректора</a></li>
+                            <li><a href="#">Институты и факультеты</a></li>
+                            <li><a href="#">Библиотека</a></li> 
+                            <li><a href="#">Сведения об образовательной организации в реальном мире</a></li>
+                            <li><a href="#">Расписание</a></li>
+                            <li><a href="#">Федеральный портал Российское Образование</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+

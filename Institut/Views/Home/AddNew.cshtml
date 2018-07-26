@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Добавление новости";
+
+}
+
+<h1>Добавить новость</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <p>Заголовок</p>
+    <input type="text" name="FormHead" />
+    <br />
+    <p>Текст</p>
+    <input type="text" name="FormDescription" />
+    <br />
+    <input type="file" name="image" accept="image/jpeg" />
+    <br />
+    <input type="submit" value="Добавить" />
+</form>
+

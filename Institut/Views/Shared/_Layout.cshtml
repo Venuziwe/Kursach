@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <header>
+        <div class="top-header"> </div>
+        <div class="bottom-header">
+            <div class="container">
+                <div class="col-md-4 top-logo">
+                    <img src="~/Content/images/logo_atom.png">
+                    <b href="/Home/Index" class="logo" title="logo">ITP PETRSU</b>
+                    <b href="#" class="min" title="min">Petrozavodsk,Russia</b>
+                </div>
+                <div class="col-md-8 top-menu text-right">
+                    <ul>
+                        <li><a href="/Home/Index">Главная</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Мероприятия</a></li>
+                        <li><a href="#">Расписание</a></li>
+                        <li class="active"><a href="#" class="down">Личный кабинет</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-12 top-longmenu text-center">
+                    <ul class="active">
+                        <li><a href="#">Сегодня</a></li>
+                        <li><a href="#">Обучение</a></li>
+                        <li><a href="#">Наука и иновации</a></li>
+                        <li><a href="#">Студенчество</a></li>
+                        <li><a href="#">Международное сотрудничество</a></li>
+                        <li><a href="#">Социальная среда</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    @RenderBody()
+
+    <footer>
+        <div class="top-footer">
+            <div class="container">
+                <div class="col-md-4 top-logofooter">
+                    <img src="~/Content/images/logo_atom.png">
+                    <b href="#" class="logo" title="logo">ITP PETRSU</b>
+                </div>
+
+                <div class="col-md-4 top-contact">
+                    <b href="#" class="logo" title="logo">Контакты</b>
+                </div>
+
+                <div class="col-md-4 top-social">
+                    <b href="#" class="logo" title="logo">Социальные сети</b>
+                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?154"></script>
+                    <!-- VK Widget -->
+                    <div id="vk_groups"></div>
+                    <script type="text/javascript">
+                        VK.Widgets.Group("vk_groups", { mode: 3 }, 131450190);
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container">
+                <div class="col-md-4 copyright">
+                    <p>©2005 - 2018 Физико-техничкий институт</p>
+                    <p>Петрозаводского государственного университета (ФТИ ПетрГУ)</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

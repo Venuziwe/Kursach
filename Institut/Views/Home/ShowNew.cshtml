@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Новость";
+
+}
+
+<h1>Новость</h1>
+@foreach (var n in ViewBag.News)
+{
+    if (n.NewId == ViewBag.New_id)
+    {
+        <br />
+        var imagePath = @n.NewId + ".jpeg";
+        <img src="~/Content/Images/@imagePath" />
+        <br />
+        <br />
+        <p>@n.Date.ToString("dd:MM:yyyy")</p>
+        <p>@n.Head</p>
+        <p>@n.Description</p>
+    }
+}
+
